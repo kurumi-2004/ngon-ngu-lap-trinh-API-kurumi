@@ -1,0 +1,9 @@
+src/
+tests/
+.git/
+.github/
+.vscode/
+node_modules/
+*.log
+*.tgz
+.DS_Store
