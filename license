@@ -1,0 +1,98 @@
+Extended MIT-based License (EMIT-1.0)
+Giấy phép Mở Rộng dựa trên MIT – Phiên bản 1.0
+
+
+Giấy phép MIT là một trong những giấy phép phần mềm phổ biến nhất, nổi tiếng bởi tính đơn giản, ngắn gọn và cho phép sử dụng gần như tự do. Tuy nhiên, sự ngắn gọn đôi khi dẫn đến thiếu chi tiết trong các trường hợp cụ thể như đóng góp cộng đồng, tái cấp phép, thương mại hóa quy mô lớn, và nghĩa vụ pháp lý. Để giải quyết vấn đề này, giấy phép EMIT-1.0 (Extended MIT-based License) ra đời nhằm kế thừa toàn bộ tinh thần tự do của MIT, đồng thời mở rộng nội dung để bảo đảm tính rõ ràng và giảm thiểu rủi ro pháp lý cho cả tác giả và người dùng.
+
+
+The MIT License is one of the most widely used software licenses, famous for its simplicity, brevity, and near-unrestricted usage permissions. However, such brevity sometimes results in a lack of detail in specific cases such as community contributions, sublicensing, large-scale commercialization, and legal obligations. To address this, the EMIT-1.0 (Extended MIT-based License) was created to preserve the freedom of MIT while expanding its contents to ensure clarity and minimize legal risks for both authors and users.
+
+
+1. Người dùng được phép sử dụng phần mềm cho mọi mục đích, bao gồm học tập, nghiên cứu, phát triển, và thương mại.
+2. Không giới hạn hình thức sử dụng: máy tính cá nhân, máy chủ, thiết bị nhúng, đám mây, hoặc môi trường ảo hóa.
+3. Người dùng được quyền tích hợp phần mềm này vào các sản phẩm khác, kể cả phần mềm nguồn đóng.
+
+
+1. Users are permitted to use the software for any purpose, including education, research, development, and commercial applications.
+2. Usage is unrestricted across platforms: personal computers, servers, embedded devices, cloud systems, or virtualized environments.
+3. Users may integrate this software into other products, including proprietary software.
+3. Quyền sao chép và phân phối / Copying and Distribution
+
+1. Người dùng có thể sao chép, phân phối lại phần mềm ở dạng nguyên bản hoặc đã chỉnh sửa.
+2. Khi phân phối, bắt buộc phải giữ lại thông báo bản quyền gốc và giấy phép này.
+3. Có thể phân phối bằng mọi phương tiện: tải xuống trực tuyến, đĩa quang, ổ cứng, hoặc bất kỳ kênh kỹ thuật số nào.
+
+
+1. Users may copy and redistribute the software in its original or modified form.
+2. Redistribution must include the original copyright notice and this license.
+3. Distribution is permitted via any medium: online downloads, optical discs, hard drives, or any digital channel.
+4. Quyền chỉnh sửa và phát triển / Modification and Derivative Works
+
+1. Người dùng có quyền sửa đổi, cải tiến, hoặc phát triển phần mềm thành dự án mới.
+2. Các bản phái sinh không bắt buộc phải mở mã nguồn, nhưng phải giữ nguyên thông báo bản quyền gốc.
+3. Người dùng có thể gộp phần mềm này với các thư viện khác, miễn là không vi phạm giấy phép của bên thứ ba.
+
+
+1. Users may modify, improve, or develop the software into new projects.
+2. Derivative works are not required to be open source but must retain the original copyright notice.
+3. Users may combine this software with other libraries, provided no third-party licenses are violated.
+5. Tái cấp phép và tích hợp / Sublicensing and Integration
+
+1. Người dùng có quyền tái cấp phép phần mềm dưới dạng tích hợp trong sản phẩm khác.
+2. Nếu phần mềm là một thành phần trong sản phẩm thương mại, giấy phép này vẫn áp dụng cho phần gốc.
+3. Việc tái cấp phép không cho phép loại bỏ giấy phép gốc, mà chỉ bổ sung điều khoản phù hợp với sản phẩm mới.
+
+
+1. Users are allowed to sublicense the software as part of an integrated product.
+2. If the software is included in a commercial product, this license still applies to the original code.
+3. Sublicensing does not permit the removal of this original license but may add additional terms relevant to the new product.
+6. Đóng góp cộng đồng / Community Contributions
+
+1. Mọi đóng góp vào dự án chính (như mã nguồn, tài liệu, bản vá) được coi là đóng góp tự nguyện.
+2. Người đóng góp đồng ý rằng bản quyền đối với phần đóng góp sẽ được cấp phép lại theo EMIT-1.0.
+3. Điều này bảo đảm sự thống nhất về giấy phép cho toàn bộ dự án.
+
+
+1. All contributions to the main project (such as code, documentation, patches) are considered voluntary contributions.
+2. Contributors agree that the copyright of their contributions will be relicensed under EMIT-1.0.
+3. This ensures consistency of licensing across the project.
+7. Miễn trừ trách nhiệm / Disclaimer of Warranty
+Việt:
+1. Phần mềm được cung cấp “nguyên trạng”, không có bất kỳ bảo hành nào, bao gồm nhưng không giới hạn ở bảo đảm thương mại hoặc phù hợp cho mục đích cụ thể.
+2. Tác giả không chịu trách nhiệm với mọi thiệt hại trực tiếp, gián tiếp, ngẫu nhiên hoặc hệ quả phát sinh từ việc sử dụng phần mềm.
+3. Người dùng chịu toàn bộ rủi ro khi sử dụng.
+
+1. The software is provided “as is,” without any warranty, including but not limited to warranties of merchantability or fitness for a particular purpose.
+2. The author is not liable for any direct, indirect, incidental, or consequential damages arising from the use of the software.
+3. Users assume all risks associated with its use.
+8. Giới hạn trách nhiệm / Limitation of Liability
+
+1. Trách nhiệm tối đa của tác giả trong mọi tình huống sẽ không vượt quá số tiền người dùng đã trả để sử dụng phần mềm (nếu có).
+2. Trong trường hợp phần mềm được cung cấp miễn phí, trách nhiệm pháp lý của tác giả bằng 0.
+
+
+1. The author’s maximum liability under any circumstance shall not exceed the amount paid by the user for the software (if any).
+2. If the software is provided free of charge, the author’s liability shall be zero.
+9. Luật áp dụng và giải quyết tranh chấp / Governing Law and Dispute Resolution
+Việt:
+1. Giấy phép này chịu sự điều chỉnh bởi pháp luật quốc gia nơi tác giả đăng ký bản quyền.
+2. Tranh chấp phát sinh sẽ được giải quyết thông qua thương lượng trước khi đưa ra tòa án hoặc trọng tài.
+
+
+1. This license is governed by the laws of the country where the author holds copyright.
+2. Any dispute shall first be attempted to be resolved through negotiation before proceeding to court or arbitration.
+10. Hiệu lực và chấm dứt / Validity and Termination
+
+1. Giấy phép này có hiệu lực vĩnh viễn trừ khi người dùng vi phạm điều khoản.
+2. Nếu vi phạm, quyền sử dụng phần mềm sẽ tự động chấm dứt.
+3. Tác giả vẫn giữ quyền phát hành phiên bản giấy phép mới, và người dùng có thể lựa chọn phiên bản áp dụng.
+
+
+1. This license remains valid indefinitely unless the user violates its terms.
+2. Upon violation, all rights to use the software are automatically terminated.
+3. The author retains the right to release updated versions of this license, and users may choose which version to apply.
+
+EMIT-1.0 là sự mở rộng của giấy phép MIT, duy trì tính đơn giản nhưng bổ sung chi tiết để đảm bảo tính minh bạch và rõ ràng. Nó bảo vệ tác giả khỏi trách nhiệm pháp lý không cần thiết, đồng thời trao cho người dùng sự tự do tối đa trong việc khai thác phần mềm. Với sự kết hợp giữa ngắn gọn và đầy đủ, EMIT-1.0 phù hợp cho cả dự án cá nhân lẫn doanh nghiệp.
+
+English:
+EMIT-1.0 extends the MIT License, maintaining its simplicity while adding details to ensure transparency and clarity. It protects authors from unnecessary legal liabilities while granting users maximum freedom in software exploitation. With a balance of brevity and completeness, EMIT-1.0 is suitable for both individual and enterprise 
