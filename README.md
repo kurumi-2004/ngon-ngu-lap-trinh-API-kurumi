@@ -102,4 +102,4 @@ print("Server đang chạy tại http://localhost:3000")
 
 ## Giấy phép
 
-Kurumi được phát hành dưới giấy phép MIT.
+Kurumi được phát hành dưới giấy phép độc quyền.
