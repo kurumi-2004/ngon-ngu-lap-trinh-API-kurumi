@@ -1,0 +1,198 @@
+// example_api.kuru - Ví dụ API web đơn giản bằng Kurumi
+
+import { Database } from "kurumi/database";
+import { Server } from "kurumi/server";
+import { Auth } from "kurumi/auth";
+
+// Khởi tạo kết nối cơ sở dữ liệu
+let db = new Database({
+    type: "mysql",
+    host: "localhost",
+    user: "root",
+    password: "password",
+    database: "blog_app"
+});
+
+// Định nghĩa model
+class Post {
+    static table = "posts";
+    
+    func constructor(data) {
+        this.id = data.id;
+        this.title = data.title;
+        this.content = data.content;
+        this.author_id = data.author_id;
+        this.created_at = data.created_at || new Date();
+    }
+    
+    static async func findAll() {
+        return await db.query(`SELECT * FROM ${this.table}`);
+    }
+    
+    static async func findById(id) {
+        return await db.query(`SELECT * FROM ${this.table} WHERE id = ?`, [id]);
+    }
+    
+    async func save() {
+        if (this.id) {
+            // Cập nhật
+            return await db.query(
+                `UPDATE ${Post.table} SET title = ?, content = ? WHERE id = ?`,
+                [this.title, this.content, this.id]
+            );
+        } else {
+            // Tạo mới
+            let result = await db.query(
+                `INSERT INTO ${Post.table} (title, content, author_id, created_at) VALUES (?, ?, ?, ?)`,
+                [this.title, this.content, this.author_id, this.created_at]
+            );
+            this.id = result.insertId;
+            return result;
+        }
+    }
+}
+
+// Middleware xác thực
+let authMiddleware = async (req, res, next) => {
+    let token = req.headers.authorization;
+    if (!token) {
+        return res.status(401).json({error: "Unauthorized"});
+    }
+    
+    try {
+        let user = await Auth.verifyToken(token);
+        req.user = user;
+        next();
+    } catch (error) {
+        return res.status(401).json({error: "Invalid token"});
+    }
+};
+
+// Định nghĩa API
+@api("/api")
+class BlogAPI {
+    // Lấy tất cả bài viết
+    @get("/posts")
+    async func getPosts(req, res) {
+        try {
+            let posts = await Post.findAll();
+            return res.json(posts);
+        } catch (error) {
+            return res.status(500).json({error: error.message});
+        }
+    }
+    
+    // Lấy bài viết theo ID
+    @get("/posts/:id")
+    async func getPost(req, res) {
+        try {
+            let post = await Post.findById(req.params.id);
+            if (!post) {
+                return res.status(404).json({error: "Post not found"});
+            }
+            return res.json(post);
+        } catch (error) {
+            return res.status(500).json({error: error.message});
+        }
+    }
+    
+    // Tạo bài viết mới (yêu cầu xác thực)
+    @post("/posts")
+    @middleware(authMiddleware)
+    async func createPost(req, res) {
+        try {
+            let postData = {
+                title: req.body.title,
+                content: req.body.content,
+                author_id: req.user.id
+            };
+            
+            // Kiểm tra dữ liệu
+            if (!postData.title || !postData.content) {
+                return res.status(400).json({error: "Title and content are required"});
+            }
+            
+            let post = new Post(postData);
+            await post.save();
+            
+            return res.status(201).json(post);
+        } catch (error) {
+            return res.status(500).json({error: error.message});
+        }
+    }
+    
+    // Cập nhật bài viết (yêu cầu xác thực)
+    @put("/posts/:id")
+    @middleware(authMiddleware)
+    async func updatePost(req, res) {
+        try {
+            let post = await Post.findById(req.params.id);
+            if (!post) {
+                return res.status(404).json({error: "Post not found"});
+            }
+            
+            // Kiểm tra quyền
+            if (post.author_id !== req.user.id) {
+                return res.status(403).json({error: "Forbidden"});
+            }
+            
+            // Cập nhật dữ liệu
+            post.title = req.body.title || post.title;
+            post.content = req.body.content || post.content;
+            
+            await post.save();
+            
+            return res.json(post);
+        } catch (error) {
+            return res.status(500).json({error: error.message});
+        }
+    }
+    
+    // Xóa bài viết (yêu cầu xác thực)
+    @delete("/posts/:id")
+    @middleware(authMiddleware)
+    async func deletePost(req, res) {
+        try {
+            let post = await Post.findById(req.params.id);
+            if (!post) {
+                return res.status(404).json({error: "Post not found"});
+            }
+            
+            // Kiểm tra quyền
+            if (post.author_id !== req.user.id) {
+                return res.status(403).json({error: "Forbidden"});
+            }
+            
+            await db.query(`DELETE FROM ${Post.table} WHERE id = ?`, [post.id]);
+            
+            return res.status(204).send();
+        } catch (error) {
+            return res.status(500).json({error: error.message});
+        }
+    }
+    
+    // API đăng nhập
+    @post("/login")
+    async func login(req, res) {
+        try {
+            let { email, password } = req.body;
+            
+            if (!email || !password) {
+                return res.status(400).json({error: "Email and password are required"});
+            }
+            
+            let token = await Auth.login(email, password);
+            return res.json({ token });
+        } catch (error) {
+            return res.status(401).json({error: "Invalid credentials"});
+        }
+    }
+}
+
+// Khởi động server
+let server = new Server();
+server.registerAPI(new BlogAPI());
+
+server.listen(3000, () => {
+    console.log("Server running on port 3000");
+});
